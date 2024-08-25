@@ -73,7 +73,7 @@ router.post('/:type', uploads.single('profile'), async (req, res) => {
                 ratings: ratings        
             }).then(() => msg = 'Congrats! you have opened a new Shop!')
             .catch(err => {
-                deleter(imgSrc, req.file.filename);
+                // deleter(imgSrc, req.file.filename);
                 stat = 500;
                 msg = err.message;
             });           
@@ -81,7 +81,7 @@ router.post('/:type', uploads.single('profile'), async (req, res) => {
             return res.status(stat).json({msg: msg});
 
         } else {
-            deleter(imgSrc, req.file.filename);
+            // deleter(imgSrc, req.file.filename);
             return res.status(404).json({msg : 'Wrong End Point!'});
 
         }
@@ -89,7 +89,7 @@ router.post('/:type', uploads.single('profile'), async (req, res) => {
 
     } catch (error) {
 
-        deleter(imgSrc, req.file.filename);
+        // deleter(imgSrc, req.file.filename);
         console.log(error);
         return res.status(500).json({msg: 'Server Internal Error'});
     }
